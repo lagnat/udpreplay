@@ -78,6 +78,11 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
+  {
+    int one = 1;
+    setsockopt(fd, SOL_SOCKET, SO_BROADCAST, &one, sizeof(one));
+  }
+
   if (ifindex != 0) {
     ip_mreqn mreqn;
     memset(&mreqn, 0, sizeof(mreqn));
